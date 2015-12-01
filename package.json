@@ -1,0 +1,25 @@
+{
+  "name": "sloc-count",
+  "version": "0.0.1",
+  "description": "Count the number of Single Lines of Code (SLOC)",
+  "main": "sloc-count.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichielvdVelde/sloc-count.git"
+  },
+  "keywords": [
+    "sloc",
+    "count",
+    "source",
+    "lines"
+  ],
+  "author": "Michiel van der Velde <michiel@michielvdvelde.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichielvdVelde/sloc-count/issues"
+  },
+  "homepage": "https://github.com/MichielvdVelde/sloc-count#readme"
+}
