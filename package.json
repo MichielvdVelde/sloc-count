@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/MichielvdVelde/sloc-count/issues"
   },
-  "homepage": "https://github.com/MichielvdVelde/sloc-count#readme"
+  "homepage": "https://github.com/MichielvdVelde/sloc-count#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1"
+  }
 }
