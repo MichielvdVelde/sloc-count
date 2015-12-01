@@ -1,15 +1,18 @@
 
 /**
- * Takes the contents of a file and generates a statistics object with
- * information about the lines.
- *
- * The 'options' argument is reserved for future use
+ * Takes the contents of a file and generates a statistics
+ * object with information about the lines.
 */
 exports = module.exports = function(contents, options, callback) {
 	if(!callback && typeof options === 'function') {
 		callback = options;
 		options = {};
 	}
+
+	// Set defauls if no options are passed
+	if(!options.singleLineComment) options.singleLineComment = '//';
+	if(!options.blockCommentOpen) options.blockCommentOpen = '/*';
+	if(!options.blockCommentClose) options.blockCommentClose = '*/';
 
 	var statistics = {
 		'total': 0,
@@ -19,13 +22,13 @@ exports = module.exports = function(contents, options, callback) {
 		'empty': 0
 	};
 
-	var lines = contents.split('\r\n');
+	var lines = contents.split(options.lineSeparator || '\r\n');
 	var line, blockCommentOpen;
 	for(var i = 0; i < lines.length; i++) {
 		statistics.total++;
 
 		line = lines[i].trim();
-		switch(lineType(line)) {
+		switch(lineType(line, options)) {
 			case 'empty':
 				statistics.empty++;
 			break;
@@ -57,10 +60,10 @@ exports = module.exports = function(contents, options, callback) {
 /**
  * Method that determines when kind of line we have
 */
-var lineType = function(line) {
+var lineType = function(line, options) {
 	if(line.length === 0) return 'empty';
-	if(line.substr(0, 2) == '//') return 'singleLineComment';
-	if(line.substr(0, 2) == '/*') return 'blockCommentOpen';
-	if(line.substr(line.length - 2) == '*/') return 'blockCommentClose';
+	if(line.substr(0, 2) == options.singleLineComment) return 'singleLineComment';
+	if(line.substr(0, 2) == options.blockCommentOpen) return 'blockCommentOpen';
+	if(line.substr(line.length - 2) == options.blockCommentClose) return 'blockCommentClose';
 	return 'source';
 };

@@ -12,6 +12,23 @@ npm install sloc-count
 
 # Usage
 
+```
+sloc-count(contents, [options, callback])
+```
+
+Options:
+
+* `lineSeparator`: The line separator (defaults to `/r/n`)
+* `singleLineComment`: The identifier for a single line comment (defaults to `//`)
+* `blockCommentOpen`: The identifier for the block comment open (defaults to `/*`)
+* `blockCommentClose`: The identifier for the block comment close (defaullts to `*/`)
+
+If the `callback` is omitted, the method returns the statistics.
+
+# Example
+
+Also see the example in the `examples` directory.
+
 ```js
 var slocCounter = require('sloc-count');
 
@@ -34,7 +51,8 @@ slocCounter(contents, function(err, stats) {
 ```
 # Changelog
 
-* 0.0.1 - 0.0.2 - 1 December 2015
+* 0.0.1 - 0.0.3 - 1 December 2015
+  * (0.0.3) Added support for several `options`
   * (0.0.2) Omitting a callback now returns the result directly
   * (0.0.1) Initial publish
 
