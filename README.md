@@ -34,8 +34,9 @@ slocCounter(contents, function(err, stats) {
 ```
 # Changelog
 
-* 0.0.1 - 1 December 2015
-  * Initial publish
+* 0.0.1 - 0.0.2 - 1 December 2015
+  * (0.0.2) Omitting a callback now returns the result directly
+  * (0.0.1) Initial publish
 
 ## License
 

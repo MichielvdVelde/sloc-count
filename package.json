@@ -1,6 +1,6 @@
 {
   "name": "sloc-count",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Count the number of Single Lines of Code (SLOC)",
   "main": "sloc-count.js",
   "scripts": {

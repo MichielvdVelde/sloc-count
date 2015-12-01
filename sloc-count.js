@@ -48,7 +48,9 @@ exports = module.exports = function(contents, options, callback) {
 			break;
 		}
 	}
-	return callback(null, statistics);
+	if(typeof callback == 'function')
+		return callback(null, statistics);
+	return statistics;
 
 };
 
