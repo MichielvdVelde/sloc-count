@@ -8,6 +8,7 @@ exports = module.exports = function(contents, options, callback) {
 		callback = options;
 		options = {};
 	}
+	if(!options) options = {};
 
 	// Set defauls if no options are passed
 	if(!options.singleLineComment) options.singleLineComment = '//';
