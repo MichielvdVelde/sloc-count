@@ -51,6 +51,8 @@ slocCounter(contents, function(err, stats) {
 ```
 # Changelog
 
+* 0.0.5 - 7 December 2015
+  * Improved default options handling
 * 0.0.1 - 0.0.4 - 1 December 2015
   * (0.0.4) Added [mocha](https://mochajs.org) tests
   * (0.0.3) Added support for several `options`

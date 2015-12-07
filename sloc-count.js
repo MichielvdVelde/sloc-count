@@ -1,4 +1,6 @@
 
+var extend = require('extend');
+
 /**
  * Takes the contents of a file and generates a statistics
  * object with information about the lines.
@@ -10,10 +12,13 @@ exports = module.exports = function(contents, options, callback) {
 	}
 	if(!options) options = {};
 
-	// Set defauls if no options are passed
-	if(!options.singleLineComment) options.singleLineComment = '//';
-	if(!options.blockCommentOpen) options.blockCommentOpen = '/*';
-	if(!options.blockCommentClose) options.blockCommentClose = '*/';
+	// Set defauls
+	options = extend({
+		'singleLineComment': '//',
+		'blockCommentOpen': '/*',
+		'blockCommentClose': '*/',
+		'lineSeparator': '\r\n'
+	}, options);
 
 	var statistics = {
 		'total': 0,
@@ -23,7 +28,7 @@ exports = module.exports = function(contents, options, callback) {
 		'empty': 0
 	};
 
-	var lines = contents.split(options.lineSeparator || '\r\n');
+	var lines = contents.split(options.lineSeparator);
 	var line, blockCommentOpen;
 	for(var i = 0; i < lines.length; i++) {
 		statistics.total++;
